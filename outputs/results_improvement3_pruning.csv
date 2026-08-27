@@ -1,0 +1,2 @@
+model,best_param,tree_depth,n_leaves,train_accuracy,accuracy,precision,recall,f1,error_rate
+Improvement 3 (Cost-Complexity Pruning),ccp_alpha=0.00247,10,24,0.8876404494382022,0.7821229050279329,0.7678571428571429,0.6231884057971014,0.688,0.2178770949720671

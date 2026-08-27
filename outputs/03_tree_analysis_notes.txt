@@ -1,0 +1,21 @@
+
+PHAN TICH CAY BASELINE
+========================
+1. Feature quan trong nhat: Sex (0.317),
+   theo sau la Age (0.270).
+   -> Phu hop voi kien thuc thuc te: gioi tinh (Sex) va gia ve (Fare)/hang ghe (Pclass)
+      la yeu to anh huong lon nhat den kha nang song sot tren Titanic
+      ("Women and children first").
+
+2. Do sau cay = 23, so la = 153 tren chi 712 mau train.
+   -> Cay QUA SAU / QUA PHUC TAP so voi kich thuoc du lieu.
+   -> Nhieu la chi chua 1-2 mau (cay "hoc thuoc long" tung truong hop training).
+
+3. So sanh Accuracy Train (98.17%) vs Test (82.12%):
+   -> Chenh lech ~16% -> day la dau hieu OVERFITTING ro ret.
+   -> Nguyen nhan: khong gioi han max_depth, min_samples_leaf mac dinh = 1
+      nen cay tiep tuc split cho den khi moi la thuan khiet (pure).
+
+=> KET LUAN: can ap dung cac ky thuat regularization (gioi han do sau,
+   tang min_samples_leaf, pruning...) o phan cai thien model de giam overfitting
+   va tang kha nang tong quat hoa (generalization) tren du lieu moi.

@@ -1,0 +1,2 @@
+model,best_param,train_accuracy,accuracy,precision,recall,f1,error_rate
+Improvement 1 (max_depth tuning),max_depth=16,0.9662921348314607,0.8379888268156425,0.8125,0.7536231884057971,0.7819548872180451,0.16201117318435754

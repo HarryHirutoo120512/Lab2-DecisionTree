@@ -1,0 +1,10 @@
+DATASET: Titanic
+So mau: 891
+So feature goc: 11
+Target: Survived (0 = khong song sot, 1 = song sot)
+Ty le target: {0: np.float64(0.616), 1: np.float64(0.384)}
+
+Missing values:
+Age         177
+Cabin       687
+Embarked      2
