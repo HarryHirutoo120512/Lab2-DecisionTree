@@ -1,21 +1,22 @@
 
-PHAN TICH CAY BASELINE
+BASELINE TREE ANALYSIS
 ========================
-1. Feature quan trong nhat: Sex (0.317),
-   theo sau la Age (0.270).
-   -> Phu hop voi kien thuc thuc te: gioi tinh (Sex) va gia ve (Fare)/hang ghe (Pclass)
-      la yeu to anh huong lon nhat den kha nang song sot tren Titanic
-      ("Women and children first").
+1. Most important feature: Sex (0.317),
+   followed by Age (0.270).
+   -> Consistent with real-world knowledge: gender (Sex) and fare (Fare)/
+      passenger class (Pclass) are the strongest factors influencing survival
+      on the Titanic ("Women and children first").
 
-2. Do sau cay = 23, so la = 153 tren chi 712 mau train.
-   -> Cay QUA SAU / QUA PHUC TAP so voi kich thuoc du lieu.
-   -> Nhieu la chi chua 1-2 mau (cay "hoc thuoc long" tung truong hop training).
+2. Tree depth = 23, number of leaves = 153 on only 712 training samples.
+   -> The tree is TOO DEEP / TOO COMPLEX relative to the dataset size.
+   -> Many leaves contain only 1-2 samples (the tree has "memorized" individual
+      training cases).
 
-3. So sanh Accuracy Train (98.17%) vs Test (82.12%):
-   -> Chenh lech ~16% -> day la dau hieu OVERFITTING ro ret.
-   -> Nguyen nhan: khong gioi han max_depth, min_samples_leaf mac dinh = 1
-      nen cay tiep tuc split cho den khi moi la thuan khiet (pure).
+3. Comparing Train Accuracy (98.17%) vs Test (82.12%):
+   -> A gap of ~16% -> a clear sign of OVERFITTING.
+   -> Cause: no max_depth limit, default min_samples_leaf = 1, so the tree
+      keeps splitting until every leaf is pure.
 
-=> KET LUAN: can ap dung cac ky thuat regularization (gioi han do sau,
-   tang min_samples_leaf, pruning...) o phan cai thien model de giam overfitting
-   va tang kha nang tong quat hoa (generalization) tren du lieu moi.
+=> CONCLUSION: regularization techniques (limiting depth, increasing
+   min_samples_leaf, pruning, etc.) should be applied in the improvement
+   stage to reduce overfitting and improve generalization on new data.

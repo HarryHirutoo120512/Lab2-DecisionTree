@@ -1,26 +1,26 @@
 
-THAO LUAN KET QUA
+RESULTS DISCUSSION
 ==================
-1. Baseline (khong gioi han) dat Test Accuracy = 0.8212 nhung
+1. The baseline (no constraints) achieved Test Accuracy = 0.8212 but
    Train Accuracy = 0.9817
-   -> khoang cach train-test rat lon -> OVERFIT nang.
+   -> a very large train-test gap -> SEVERE OVERFITTING.
 
-2. Improvement 1 (max_depth=max_depth=16) cai thien Test Accuracy len
-   0.8380, dong thoi giam khoang cach train-test dang ke
-   -> cho thay gioi han do sau giup mo hinh tong quat hoa tot hon.
+2. Improvement 1 (max_depth=16) improved Test Accuracy to
+   0.8380, while also significantly reducing the train-test gap
+   -> shows that limiting depth helps the model generalize better.
 
-3. Improvement 2 (criterion+min_samples_leaf, chon qua GridSearchCV) cho
-   Test Accuracy = 0.7765. Du CV score tren train cao, nhung
-   ket qua tren test khong vuot troi baseline -> minh hoa ro rang: chon
-   tham so toi uu theo CV khong luon dam bao tot nhat tren tap test thuc te
-   (do bien thien ngau nhien / do phuc tap cua grid).
+3. Improvement 2 (criterion + min_samples_leaf, selected via GridSearchCV) achieved
+   Test Accuracy = 0.7765. Although the CV score on train was high,
+   the test result did not outperform the baseline -> clearly illustrates that
+   choosing parameters optimal by CV does not always guarantee the best result
+   on the actual test set (due to random variation / grid complexity).
 
-4. Improvement 3 (Cost-Complexity Pruning, alpha chon qua 5-fold CV) giam
-   manh do phuc tap cay (tu depth=23, 153 la -> depth=10, 24 la) trong khi
-   Test Accuracy (0.7821) van o muc chap nhan duoc va cay
-   don gian, de giai thich hon nhieu.
+4. Improvement 3 (Cost-Complexity Pruning, alpha selected via 5-fold CV) sharply
+   reduced tree complexity (from depth=23, 153 leaves -> depth=10, 24 leaves) while
+   Test Accuracy (0.7821) remained at an acceptable level and the tree
+   is much simpler and easier to interpret.
 
-=> KET LUAN: 'Improvement 1: max_depth tuning' cho Test Accuracy cao nhat trong so cac
-   phuong phap thu nghiem. Tuy nhien, neu uu tien tinh don gian/kha nang
-   giai thich (interpretability) cua cay, Cost-Complexity Pruning la lua chon
-   can bang tot giua accuracy va do phuc tap mo hinh.
+=> CONCLUSION: 'Improvement 1: max_depth tuning' gives the highest Test Accuracy among all
+   the methods tested. However, if simplicity/interpretability of the tree is
+   prioritized, Cost-Complexity Pruning is a good balance between accuracy and
+   model complexity.
